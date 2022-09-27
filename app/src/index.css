@@ -1,0 +1,14 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body,
+html,
+#root {
+  background: url("./assets/img/Fundo.png") no-repeat;
+  background-size: cover;
+  background-color: #121214;
+}

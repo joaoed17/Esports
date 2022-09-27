@@ -1,0 +1,32 @@
+.Banner {
+  overflow: hidden;
+  border-radius: 0.5em;
+  background: #fff;
+  width: 11.25em;
+  height: 15em;
+}
+
+.Banner div {
+  padding: 1em;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.9) 67.08%
+  );
+  width: 11.5em;
+  height: 15em;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 0.4em;
+}
+
+.Banner div h3 {
+  color: #fff;
+  font-weight: 700;
+}
+
+.Banner div span {
+  color: #d4d4d8;
+  font-size: 0.9em;
+}

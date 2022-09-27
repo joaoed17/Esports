@@ -1,0 +1,84 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App img {
+  margin: 5em 0;
+}
+
+.App h1 {
+  color: #fff;
+  font-weight: 900;
+  font-size: 3em;
+}
+
+.App h1 span {
+  background: linear-gradient(89.86deg, #9572fc, #43e7ad, #e1d55d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gameBanners {
+  margin: 4em 0 3em 0;
+  display: flex;
+  gap: 1.5em;
+}
+
+.createAdBackground {
+  margin-bottom: 5em;
+  height: 7.3em;
+  background: linear-gradient(89.86deg, #9572fc, #43e7ad, #e1d55d);
+  border-radius: 1.3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.createAd {
+  background: #2a2634;
+  width: 75em;
+  height: 7em;
+  border-radius: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.createAdText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  padding: 2em;
+}
+
+.createAdText h2 {
+  font-size: 1.5em;
+  font-weight: 900;
+  color: #fff;
+}
+
+.createAdText h3 {
+  color: #a1a1aa;
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.createAdButton {
+  margin: 2em;
+  padding: 1.8em 2em;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+  border-radius: 1em;
+  background: #8b5cf6;
+  color: #fff;
+  font-weight: 700;
+}
+
+.createAdButton span {
+  font-size: 1.2em;
+}
