@@ -4,7 +4,7 @@ function Banner() {
   return (
     <div className={style.Banner}>
       <div>
-        <h3>Jogo</h3>
+        <h3>nome</h3>
         <span>Anuncios</span>
       </div>
     </div>
