@@ -12,8 +12,8 @@ function App() {
   useEffect(() => {
     fetch(`${url}games`)
       .then((res) => res.json())
-      .then((res) => {
-        setGames(res);
+      .then((data) => {
+        setGames(data);
       })
       .catch((error) => console.error(error));
   }, []);
@@ -26,9 +26,10 @@ function App() {
       </h1>
       <div className={style.gameBanners}>
         <Banner
-          key="0"
-          bannerImg="https://static-cdn.jtvnw.net/ttv-boxart/516575-285x380.jpg"
-          name=""
+          id="teste"
+          key={games.id}
+          bannerImg={games.bannerUrl}
+          name={games.name}
           adsCount="2 anúncios"
         />
         <Banner />
