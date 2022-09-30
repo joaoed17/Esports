@@ -7,7 +7,7 @@ import CreateAd from "./assets/components/CreateAd";
 
 function App() {
   const url = "http://localhost:3000/";
-  const [games, setGames] = useState();
+  const [games, setGames] = useState([]);
 
   useEffect(() => {
     fetch(`${url}games`)
