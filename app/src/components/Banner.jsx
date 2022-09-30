@@ -1,12 +1,11 @@
 import style from "./Banner.module.css";
 
-function Banner(props) {
+function Banner({ bannerUrl, name }) {
   return (
     <a className={style.Banner}>
-      <img src={props.bannerImg} />
+      <img src={bannerUrl} />
       <div>
-        <h3>{props.name}</h3>
-        <span>{props.adsCount}</span>
+        <h3>{name}</h3>
       </div>
     </a>
   );
