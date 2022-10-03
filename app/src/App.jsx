@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 
 import Logo from "./assets/img/Logo.svg";
 import Banner from "./components/Banner.jsx";
-import CreateAd from "./components/CreateAd";
+import CreateAdBanner from "./components/CreateAdBanner";
 
 function App() {
   const url = "http://localhost:3000/";
+
   const [games, setGames] = useState([]);
 
   useEffect(() => {
@@ -25,9 +26,12 @@ function App() {
         Seu <span>duo</span> está aqui!
       </h1>
       <div className={style.gameBanners}>
-        {games?.map(g => (<Banner key={g.id} name={g.name} bannerUrl={g.bannerUrl} />))}
+        {games?.map((g) => (
+          <Banner key={g.id} name={g.name} bannerUrl={g.bannerUrl} />
+        ))}
       </div>
-      <CreateAd />
+
+      <CreateAdBanner />
     </div>
   );
 }

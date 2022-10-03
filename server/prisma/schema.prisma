@@ -14,4 +14,20 @@ model games {
   id        String @id @default(uuid())
   name      String
   bannerUrl String
+  ads       ads[]
+}
+
+model ads {
+  id              String   @id @default(uuid())
+  gamesId         String
+  name            String
+  yearsPlaying    Int
+  discord         String
+  weekDays        String
+  hourStart       Int
+  hourEnd         Int
+  useVoiceChannel Boolean
+  createdAt       DateTime @default(now())
+
+  game games @relation(fields: [gamesId], references: [id])
 }

@@ -1,8 +1,8 @@
-import style from "./CreateAd.module.css";
+import style from "./CreateAdBanner.module.css";
 
 import { MagnifyingGlassPlus } from "phosphor-react";
 
-function CreateAd() {
+function CreateAdBanner() {
   return (
     <div className={style.createAdBackground}>
       <div className={style.createAd}>
@@ -19,4 +19,4 @@ function CreateAd() {
   );
 }
 
-export default CreateAd;
+export default CreateAdBanner;

@@ -42,12 +42,20 @@
   padding: 1.8em 2em;
   height: 3em;
   display: flex;
+  border: none;
   align-items: center;
   gap: 0.2em;
   border-radius: 1em;
   background: #8b5cf6;
   color: #fff;
   font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.createAdButton:hover {
+  background: #6f49c6;
+  transition: 0.3s;
 }
 
 .createAdButton span {
