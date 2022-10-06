@@ -30,13 +30,13 @@ function Banner({ bannerUrl, name, id }) {
     },
   };
 
-  const openModal = () => {
+  function openModal() {
     setModalAdsIsOpen(true);
-  };
+  }
 
-  const closeModal = () => {
+  function closeModal() {
     setModalAdsIsOpen(false);
-  };
+  }
 
   return (
     <div onClick={openModal} id={id} className={style.banner}>
@@ -49,14 +49,14 @@ function Banner({ bannerUrl, name, id }) {
       </button>
 
       <Modal
-        isOpen={modalAdsIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel="Example Modal"
+        shouldCloseOnOverlayClick={true}
+        isOpen={modalAdsIsOpen}
       >
         <div className={style.modal}>
           <div className={style.modalTop}>
-            <button onClick={console.log("clickou")}>
+            <button onClick={closeModal}>
               <ArrowLeft />
             </button>
             <div className={style.modalTitle}>
