@@ -22,12 +22,14 @@ function App() {
   return (
     <div className={style.App}>
       <img id={style.logo} src={Logo} alt="Logo" />
+
       <h1>
         Seu <span>duo</span> está aqui!
       </h1>
-      <div className={style.gameBanners}>
+
+      <div id="gameBanners" className={style.gameBanners}>
         {games?.map((g) => (
-          <Banner key={g.id} name={g.name} bannerUrl={g.bannerUrl} />
+          <Banner id={g.id} key={g.id} name={g.name} bannerUrl={g.bannerUrl} />
         ))}
       </div>
 

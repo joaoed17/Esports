@@ -14,7 +14,7 @@ app.get("/games/", async (req, res) => {
 });
 
 app.get("/games/:id/ads", async (req, res) => {
-  const gameId = req.params.id;
+  const gamesId = req.params.id;
 
   const ads = await prisma.ads.findMany({
     select: {
@@ -27,7 +27,7 @@ app.get("/games/:id/ads", async (req, res) => {
       hourEnd: true,
     },
     where: {
-      gameId: gameId,
+      gamesId: gamesId,
     },
     orderBy: {
       createdAt: "desc",
