@@ -48,15 +48,15 @@ function Banner({ bannerUrl, name, id }) {
         </div>
       </button>
 
+      {console.log(modalAdsIsOpen)}
       <Modal
         onRequestClose={closeModal}
         style={customStyles}
-        shouldCloseOnOverlayClick={true}
         isOpen={modalAdsIsOpen}
       >
         <div className={style.modal}>
           <div className={style.modalTop}>
-            <button onClick={closeModal}>
+            <button onClickCapture={closeModal}>
               <ArrowLeft />
             </button>
             <div className={style.modalTitle}>
