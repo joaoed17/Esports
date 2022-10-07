@@ -15,6 +15,7 @@
 .bannerButton {
   display: block;
   border: none;
+  cursor: pointer;
 }
 
 .bannerButton img {
@@ -70,7 +71,8 @@
 .modalTop button {
   padding: 0.8em 0.85em 0.7em 0.85em;
   position: fixed;
-  left: 2.5em;
+  left: 2em;
+  top: 2em;
   background: #8b5cf6;
   border-radius: 100%;
   border: none;
@@ -79,6 +81,8 @@
 }
 
 .modalTitle {
+  position: fixed;
+  top: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -105,11 +109,23 @@
 }
 
 .modalAds img {
+  left: 2em;
+  top: 9.3em;
+  position: fixed;
   border-radius: 1em;
   width: 16em;
 }
 
 .adsBanners {
+  display: block;
+  position: fixed;
+  right: 4.5em;
+  top: 10em;
+  width: 39em;
+  overflow: hidden;
+}
+
+.adBanner {
   border-radius: 1em;
   width: 13em;
   height: 20em;
@@ -119,6 +135,19 @@
   align-items: flex-start;
   justify-content: center;
   padding: 1.2em;
+}
+
+.adBanner button {
+  border-radius: 0.5em;
+  background: #8b5cf6;
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  gap: 1em;
+  margin: 0 auto;
+  border: none;
+  padding: 0.5em 2.8em;
+  cursor: pointer;
 }
 
 .informations {
@@ -147,17 +176,4 @@
   font-size: 1em;
   font-weight: 600;
   color: #34d399;
-}
-
-.adsBanners button {
-  border-radius: 0.5em;
-  background: #8b5cf6;
-  color: #fff;
-  font-weight: 700;
-  display: flex;
-  gap: 1em;
-  margin: 0 auto;
-  border: none;
-  padding: 0.5em 2.8em;
-  cursor: pointer;
 }

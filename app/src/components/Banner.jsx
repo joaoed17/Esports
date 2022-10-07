@@ -1,11 +1,21 @@
 import style from "./Banner.module.css";
 import Modal from "react-modal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { GameController, ArrowLeft } from "phosphor-react";
 
 Modal.setAppElement("#root");
 
-function Banner({ bannerUrl, name, id }) {
+function Banner({
+  bannerUrl,
+  name,
+  id,
+  playerName,
+  yearsPlaying,
+  weekDays,
+  hourStart,
+  hourEnd,
+  voiceChannel,
+}) {
   const [modalAdsIsOpen, setModalAdsIsOpen] = useState(false);
 
   const customStyles = {
@@ -30,9 +40,9 @@ function Banner({ bannerUrl, name, id }) {
     },
   };
 
-  function openModal() {
+  const openModal = () => {
     setModalAdsIsOpen(true);
-  }
+  };
 
   function closeModal() {
     setModalAdsIsOpen(false);
@@ -48,7 +58,6 @@ function Banner({ bannerUrl, name, id }) {
         </div>
       </button>
 
-      {console.log(modalAdsIsOpen)}
       <Modal
         onRequestClose={closeModal}
         style={customStyles}
@@ -69,55 +78,22 @@ function Banner({ bannerUrl, name, id }) {
             <img src={bannerUrl} alt="" />
 
             <div className={style.adsBanners}>
-              <div className={style.informations}>
-                <h3>Nome</h3>
-                <h4>João Eduardo</h4>
-                <h3>Tempo de jogo</h3>
-                <h4>6 anos</h4>
-                <h3>Disponibilidade</h3>
-                <h4>2 dias | 10:00-16:00</h4>
-                <h3>Chamada de áudio</h3>
-                <span className={style.green}>Sim</span>
+              <div className={style.adBanner}>
+                <div className={style.informations}>
+                  <h3>Nome</h3>
+                  <h4>{playerName}</h4>
+                  <h3>Tempo de jogo</h3>
+                  <h4>{yearsPlaying}</h4>
+                  <h3>Disponibilidade</h3>
+                  <h4>{`${weekDays} | ${hourStart}-${hourEnd}`}</h4>
+                  <h3>Chamada de áudio</h3>
+                  <span className={style.green}>{voiceChannel}</span>
+                </div>
+                <button>
+                  <GameController size="1.4em" weight="bold" />
+                  Conectar
+                </button>
               </div>
-
-              <button>
-                <GameController size="1.4em" weight="bold" />
-                Conectar
-              </button>
-            </div>
-
-            <div className={style.adsBanners}>
-              <div className={style.informations}>
-                <h3>Nome</h3>
-                <h4>João Eduardo</h4>
-                <h3>Tempo de jogo</h3>
-                <h4>6 anos</h4>
-                <h3>Disponibilidade</h3>
-                <h4>2 dias | 10:00-16:00</h4>
-                <h3>Chamada de áudio</h3>
-                <span className={style.green}>Sim</span>
-              </div>
-              <button>
-                <GameController size="1.4em" weight="bold" />
-                Conectar
-              </button>
-            </div>
-
-            <div className={style.adsBanners}>
-              <div className={style.informations}>
-                <h3>Nome</h3>
-                <h4>João Eduardo</h4>
-                <h3>Tempo de jogo</h3>
-                <h4>6 anos</h4>
-                <h3>Disponibilidade</h3>
-                <h4>2 dias | 10:00-16:00</h4>
-                <h3>Chamada de áudio</h3>
-                <span className={style.green}>Sim</span>
-              </div>
-              <button>
-                <GameController size="1.4em" weight="bold" />
-                Conectar
-              </button>
             </div>
           </div>
         </div>
