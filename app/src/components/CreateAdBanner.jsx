@@ -10,10 +10,10 @@ function CreateAdBanner() {
           <h2>Não encontrou seu duo?</h2>
           <h3>Publique seu anúncio para encontrar novos players!</h3>
         </div>
-        <div className={style.createAdButton}>
+        <button className={style.createAdButton}>
           <MagnifyingGlassPlus size="1.5em" />
           <span>Publicar anúncio</span>
-        </div>
+        </button>
       </div>
     </div>
   );

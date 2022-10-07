@@ -72,17 +72,23 @@
   padding: 0.8em 0.85em 0.7em 0.85em;
   position: fixed;
   left: 2em;
-  top: 2em;
+  top: 2.5em;
   background: #8b5cf6;
   border-radius: 100%;
   border: none;
   cursor: pointer;
   color: #fff;
+  transition: 0.3s;
+}
+
+.modalTop button:hover {
+  background: #6f49c6;
+  transition: 0.3s;
 }
 
 .modalTitle {
   position: fixed;
-  top: 2em;
+  top: 2.5em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -109,19 +115,20 @@
 }
 
 .modalAds img {
-  left: 2em;
-  top: 9.3em;
+  left: 1.5em;
+  top: 9em;
   position: fixed;
   border-radius: 1em;
   width: 16em;
 }
 
 .adsBanners {
-  display: block;
+  display: flex;
+  gap: 1em;
   position: fixed;
-  right: 4.5em;
-  top: 10em;
-  width: 39em;
+  right: 3em;
+  top: 9.8em;
+  width: 42em;
   overflow: hidden;
 }
 
@@ -148,6 +155,11 @@
   border: none;
   padding: 0.5em 2.8em;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.adBanner button:hover {
+  background: #6f49c6;
 }
 
 .informations {
@@ -176,4 +188,12 @@
   font-size: 1em;
   font-weight: 600;
   color: #34d399;
+}
+
+.red {
+  margin-bottom: 0.7em;
+  margin-top: 0.2em;
+  font-size: 1em;
+  font-weight: 600;
+  color: #d33434;
 }

@@ -1,6 +1,6 @@
 import style from "./Banner.module.css";
 import Modal from "react-modal";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { GameController, ArrowLeft } from "phosphor-react";
 
 Modal.setAppElement("#root");
@@ -17,6 +17,10 @@ function Banner({
   voiceChannel,
 }) {
   const [modalAdsIsOpen, setModalAdsIsOpen] = useState(false);
+
+  const [ads, setAds] = useState([]);
+
+  const span = document.getElementById("");
 
   const customStyles = {
     content: {
@@ -42,11 +46,18 @@ function Banner({
 
   const openModal = () => {
     setModalAdsIsOpen(true);
+
+    fetch(`http://localhost:3000/games/${id}/ads`)
+      .then((res) => res.json())
+      .then((data) => {
+        setAds(data);
+      })
+      .catch((error) => console.error(error));
   };
 
-  function closeModal() {
+  const closeModal = () => {
     setModalAdsIsOpen(false);
-  }
+  };
 
   return (
     <div onClick={openModal} id={id} className={style.banner}>
@@ -78,22 +89,26 @@ function Banner({
             <img src={bannerUrl} alt="" />
 
             <div className={style.adsBanners}>
-              <div className={style.adBanner}>
-                <div className={style.informations}>
-                  <h3>Nome</h3>
-                  <h4>{playerName}</h4>
-                  <h3>Tempo de jogo</h3>
-                  <h4>{yearsPlaying}</h4>
-                  <h3>Disponibilidade</h3>
-                  <h4>{`${weekDays} | ${hourStart}-${hourEnd}`}</h4>
-                  <h3>Chamada de áudio</h3>
-                  <span className={style.green}>{voiceChannel}</span>
+              {ads?.map((a) => (
+                <div className={style.adBanner} key={a.id}>
+                  <div className={style.informations}>
+                    <h3>Nome</h3>
+                    <h4>{a.name}</h4>
+                    <h3>Tempo de jogo</h3>
+                    <h4>{`${a.yearsPlaying} Ano(s)`}</h4>
+                    <h3>Disponibilidade</h3>
+                    <h4>{`${a.weekDays} | ${a.hourStart}-${a.hourEnd}`}</h4>
+                    <h3>Chamada de áudio</h3>
+                    <span className={style.green}>
+                      {a.useVoiceChannel ? "Sim" : "Não"}
+                    </span>
+                  </div>
+                  <button>
+                    <GameController size="1.4em" weight="bold" />
+                    Conectar
+                  </button>
                 </div>
-                <button>
-                  <GameController size="1.4em" weight="bold" />
-                  Conectar
-                </button>
-              </div>
+              ))}
             </div>
           </div>
         </div>
