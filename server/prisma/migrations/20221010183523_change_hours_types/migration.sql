@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE `ads` MODIFY `hourStart` VARCHAR(191) NOT NULL,
+    MODIFY `hourEnd` VARCHAR(191) NOT NULL;

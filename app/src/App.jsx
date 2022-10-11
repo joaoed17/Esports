@@ -20,7 +20,7 @@ function App() {
   }, []);
 
   return (
-    <div className={style.App}>
+    <main className={style.App}>
       <img id={style.logo} src={Logo} alt="Logo" />
 
       <h1>
@@ -29,12 +29,18 @@ function App() {
 
       <div id="gameBanners" className={style.gameBanners}>
         {games?.map((g) => (
-          <Banner id={g.id} key={g.id} name={g.name} bannerUrl={g.bannerUrl} />
+          <Banner
+            id={g.id}
+            key={g.id}
+            name={g.name}
+            bannerUrl={g.bannerUrl}
+            countAds={g._count.ads}
+          />
         ))}
       </div>
 
       <CreateAdBanner />
-    </div>
+    </main>
   );
 }
 

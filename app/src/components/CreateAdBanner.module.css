@@ -61,3 +61,94 @@
 .createAdButton span {
   font-size: 1.2em;
 }
+
+/* Modal Configs */
+
+.modalCreateAd {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 0.5em;
+  align-items: flex-start;
+  gap: 2em;
+}
+
+.modalCreateAd h1 {
+  color: #fff;
+  font-weight: 900;
+}
+
+.modalCreateAd input,
+select {
+  background: #2a2634;
+  border: none;
+  padding: 1em 0.8em;
+  border-radius: 0.5em;
+}
+
+.modalCreateAd label {
+  color: #fff;
+  font-weight: 600;
+}
+
+.modalCreateAd option {
+  color: #fff;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3em;
+}
+
+.inputDivColum {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+}
+
+.inputDivRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.7em;
+}
+
+select:focus {
+}
+
+.buttons {
+  display: flex;
+  position: fixed;
+  gap: 1em;
+  bottom: 3em;
+  right: 3em;
+}
+
+.buttons button {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 1em 1.5em;
+  border: none;
+  border-radius: 0.6em;
+  color: #fff;
+  cursor: pointer;
+}
+
+.buttonClose {
+  background: #71717a;
+}
+
+.buttonClose:hover {
+  background: #5b5b62;
+}
+
+.buttonSend {
+  background: #8b5cf6;
+}
+
+.buttonSend:hover {
+  background: #6f49c6;
+}

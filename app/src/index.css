@@ -9,7 +9,26 @@
 body,
 html,
 #root {
+  user-select: none;
   background: url("./assets/img/Fundo.png") no-repeat;
   background-size: cover;
   background-color: #121214;
+}
+
+::-webkit-scrollbar {
+  width: 0.8em;
+}
+
+::-webkit-scrollbar-track {
+  background: #2a2634;
+  border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8b5cf6;
+  border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6f49c6;
 }

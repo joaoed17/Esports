@@ -9,7 +9,15 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/games/", async (req, res) => {
-  const game = await prisma.games.findMany();
+  const game = await prisma.games.findMany({
+    include: {
+      _count: {
+        select: {
+          ads: true,
+        },
+      },
+    },
+  });
   return res.json(game);
 });
 

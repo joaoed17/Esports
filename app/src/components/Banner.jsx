@@ -1,26 +1,13 @@
 import style from "./Banner.module.css";
 import Modal from "react-modal";
 import { useState } from "react";
-import { GameController, ArrowLeft } from "phosphor-react";
+import { GameController, ArrowLeft, ArrowRight } from "phosphor-react";
 
 Modal.setAppElement("#root");
 
-function Banner({
-  bannerUrl,
-  name,
-  id,
-  playerName,
-  yearsPlaying,
-  weekDays,
-  hourStart,
-  hourEnd,
-  voiceChannel,
-}) {
+function Banner({ bannerUrl, name, id, countAds }) {
   const [modalAdsIsOpen, setModalAdsIsOpen] = useState(false);
-
   const [ads, setAds] = useState([]);
-
-  const span = document.getElementById("");
 
   const customStyles = {
     content: {
@@ -44,10 +31,10 @@ function Banner({
     },
   };
 
-  const openModal = () => {
+  const openModal = async () => {
     setModalAdsIsOpen(true);
 
-    fetch(`http://localhost:3000/games/${id}/ads`)
+    await fetch(`http://localhost:3000/games/${id}/ads`)
       .then((res) => res.json())
       .then((data) => {
         setAds(data);
@@ -59,13 +46,27 @@ function Banner({
     setModalAdsIsOpen(false);
   };
 
+  const scrollRight = () => {
+    document.getElementById("adsBanners").scrollBy({
+      left: 220,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollLeft = () => {
+    document.getElementById("adsBanners").scrollBy({
+      left: -220,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div onClick={openModal} id={id} className={style.banner}>
       <button className={style.bannerButton}>
         <img src={bannerUrl} />
         <div>
           <h3>{name}</h3>
-          <span>3 anúncios</span>
+          <span>{countAds} anúncio(s)</span>
         </div>
       </button>
 
@@ -77,7 +78,7 @@ function Banner({
         <div className={style.modal}>
           <div className={style.modalTop}>
             <button onClickCapture={closeModal}>
-              <ArrowLeft />
+              <ArrowLeft weight="bold" />
             </button>
             <div className={style.modalTitle}>
               <h2>{name}</h2>
@@ -85,23 +86,56 @@ function Banner({
             </div>
           </div>
 
-          <div className={style.modalAds}>
+          <div id="color" className={style.modalAds}>
             <img src={bannerUrl} alt="" />
 
-            <div className={style.adsBanners}>
+            <div id="adsBanners" className={style.adsBanners}>
               {ads?.map((a) => (
                 <div className={style.adBanner} key={a.id}>
                   <div className={style.informations}>
-                    <h3>Nome</h3>
-                    <h4>{a.name}</h4>
-                    <h3>Tempo de jogo</h3>
-                    <h4>{`${a.yearsPlaying} Ano(s)`}</h4>
-                    <h3>Disponibilidade</h3>
-                    <h4>{`${a.weekDays} | ${a.hourStart}-${a.hourEnd}`}</h4>
-                    <h3>Chamada de áudio</h3>
-                    <span className={style.green}>
-                      {a.useVoiceChannel ? "Sim" : "Não"}
-                    </span>
+                    <div>
+                      <h3>Nome</h3>
+                      <h4>{a.name}</h4>
+                    </div>
+                    <div>
+                      <h3>Tempo de jogo</h3>
+                      <h4>{`${a.yearsPlaying} Ano(s)`}</h4>
+                    </div>
+                    <div>
+                      <h3>Disponibilidade</h3>
+                      <div className={style.days}>
+                        <abbr className={style.daySelected} title="Domingo">
+                          D
+                        </abbr>
+                        <abbr className={style.day} title="Segunda">
+                          S
+                        </abbr>
+                        <abbr className={style.day} title="Terça">
+                          T
+                        </abbr>
+                        <abbr className={style.day} title="Quarta">
+                          Q
+                        </abbr>
+                        <abbr className={style.day} title="Quinta">
+                          Q
+                        </abbr>
+                        <abbr className={style.daySelected} title="Sexta">
+                          S
+                        </abbr>
+                        <abbr className={style.daySelected} title="Sábado">
+                          S
+                        </abbr>
+                      </div>
+                      <h4>{`${a.hourStart}-${a.hourEnd}`}</h4>
+                    </div>
+                    <div>
+                      <h3>Chamada de áudio</h3>
+                      {a.useVoiceChannel ? (
+                        <span className={style.green}>Sim</span>
+                      ) : (
+                        <span className={style.red}>Não</span>
+                      )}
+                    </div>
                   </div>
                   <button>
                     <GameController size="1.4em" weight="bold" />
@@ -111,6 +145,25 @@ function Banner({
               ))}
             </div>
           </div>
+          {countAds > 3 ? (
+            <div className={style.buttons}>
+              <button onClick={scrollRight}>
+                <ArrowRight weight="bold" />
+              </button>
+              <button onClick={scrollLeft}>
+                <ArrowLeft weight="bold" />
+              </button>
+            </div>
+          ) : (
+            <div className={style.buttonsHide}>
+              <button>
+                <ArrowRight />
+              </button>
+              <button>
+                <ArrowLeft />
+              </button>
+            </div>
+          )}
         </div>
       </Modal>
     </div>
