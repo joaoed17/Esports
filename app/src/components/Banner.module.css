@@ -2,13 +2,8 @@
   position: relative;
   overflow: hidden;
   border-radius: 0.5em;
-  width: 11.25em;
+  min-width: 11.25em;
   cursor: pointer;
-  transition: 0.5s;
-}
-
-.banner:hover {
-  transform: translateY(-1em);
   transition: 0.5s;
 }
 

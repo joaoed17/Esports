@@ -2,7 +2,7 @@ import style from "./CreateAdBanner.module.css";
 import { useState } from "react";
 import Modal from "react-modal";
 
-import { MagnifyingGlassPlus, GameController } from "phosphor-react";
+import { MagnifyingGlassPlus, GameController, CaretDown } from "phosphor-react";
 
 function CreateAdBanner() {
   const [modalCreateAdsIsOpen, setModalCreateAdsIsOpen] = useState(false);
@@ -38,6 +38,19 @@ function CreateAdBanner() {
     setModalCreateAdsIsOpen(false);
   };
 
+  const subtraction = () => {
+    var year = document.getElementById("yearsPlaying").value;
+    if (year > 0) {
+      return year--;
+    } else {
+      return "0";
+    }
+  };
+
+  const addition = () => {
+    document.getElementById("years").value++;
+  };
+
   return (
     <div className={style.createAdBackground}>
       <div className={style.createAd}>
@@ -55,34 +68,56 @@ function CreateAdBanner() {
         onRequestClose={closeModal}
         style={customStyles}
         isOpen={modalCreateAdsIsOpen}
+        shouldCloseOnOverlayClick={false}
       >
         <form className={style.modalCreateAd}>
           <h1>Publique um anúncio</h1>
 
           <div className={style.inputs}>
-            <div className={style.inputDivColum}>
+            <div className={style.select}>
               <label htmlFor="game">Qual o game?</label>
-              <select name="game" id="game" defaultValue="">
-                <option disabled selected>
+              <select id="game" defaultValue="">
+                <option value="" disabled>
                   Selecione o game que deseja jogar
                 </option>
-                {}
+                <option value="">teste</option>
+                <option value="">teste</option>
+                <option value="">teste</option>
               </select>
+              <span>
+                <CaretDown size="1.5em" weight="bold" />
+              </span>
             </div>
+
             <div className={style.inputDivColum}>
               <label htmlFor="name">Seu nome (ou nickname)</label>
-              <input type="text" />
+              <input
+                id="name"
+                placeholder="Como te chamam dentro do game?"
+                type="text"
+              />
             </div>
+
             <div className={style.inputDivRow}>
               <div className={style.inputDivColum}>
                 <label htmlFor="yearsPlaying">Joga a quantos anos?</label>
-                <input type="number" />
+                <input
+                  id="yearsPlaying"
+                  placeholder="Tudo bem ser ZERO"
+                  type="number"
+                />
+                <div className={style.numberButtons}>
+                  <button onClick={subtraction}>-</button>
+                  <button onClick={addition}>+</button>
+                </div>
               </div>
+
               <div className={style.inputDivColum}>
                 <label htmlFor="discord">Qual seu Discord?</label>
-                <input type="text" />
+                <input id="discord" placeholder="Usuario#0000" type="text" />
               </div>
             </div>
+
             <div className={style.inputDivRow}>
               <div className={style.inputDivColum}>
                 <label htmlFor="weekDays">Quando costuma jogar?</label>
@@ -96,23 +131,24 @@ function CreateAdBanner() {
                   <input type="checkbox" />
                 </div>
               </div>
+
               <div className={style.inputDivColum}>
                 <label htmlFor="hoursPlaying">Qual horário do dia?</label>
-
                 <div className={style.inputDivRow}>
-                  <input type="time" />
-
-                  <input type="time" />
+                  <input className={style.start} type="time" />
+                  <input className={style.end} type="time" />
                 </div>
               </div>
             </div>
-            <div>
-              <input type="checkbox" />
+
+            <div className={style.voiceChannel}>
+              <input id="useVoiceChannel" type="checkbox" />
               <label htmlFor="useVoiceChannel">
                 Costumo me conectar ao chat de voz
               </label>
             </div>
           </div>
+
           <div className={style.buttons}>
             <button onClick={closeModal} className={style.buttonClose}>
               Cancelar

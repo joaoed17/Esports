@@ -71,7 +71,7 @@
   flex-direction: column;
   justify-content: start;
   padding: 0.5em;
-  align-items: flex-start;
+  align-items: center;
   gap: 2em;
 }
 
@@ -80,21 +80,19 @@
   font-weight: 900;
 }
 
-.modalCreateAd input,
-select {
+/* inputs */
+
+.modalCreateAd input {
+  caret-color: #fff;
+  color: #c7c7c7;
   background: #2a2634;
   border: none;
   padding: 1em 0.8em;
   border-radius: 0.5em;
 }
-
 .modalCreateAd label {
   color: #fff;
   font-weight: 600;
-}
-
-.modalCreateAd option {
-  color: #fff;
 }
 
 .inputs {
@@ -104,6 +102,7 @@ select {
 }
 
 .inputDivColum {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.7em;
@@ -115,8 +114,96 @@ select {
   gap: 0.7em;
 }
 
-select:focus {
+.modalCreateAd input::placeholder {
+  color: #c7c7c7;
 }
+
+.modalCreateAd input[type="time"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.start::before {
+  content: "De";
+  margin-right: 0.8em;
+}
+
+.end::before {
+  content: "Até";
+  margin-right: 0.8em;
+}
+
+.modalCreateAd input[type="number"]::-webkit-inner-spin-button,
+.modalCreateAd input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.numberButtons {
+  position: absolute;
+  right: 0.5em;
+  bottom: 0.4em;
+  z-index: 10;
+  display: flex;
+  gap: 0.5em;
+}
+
+.numberButtons button {
+  cursor: pointer;
+  padding: 0.2em;
+  background: none;
+  font-size: 1.2em;
+  color: #c7c7c7;
+  border: none;
+  transition: 0.2s;
+}
+
+.numberButtons button:hover {
+  transition: 0.2s;
+  color: #fff;
+}
+
+.voiceChannel {
+  margin-top: 1em;
+  display: flex;
+  gap: 0.6em;
+}
+
+.select {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+}
+
+.select span {
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+  top: 2.5em;
+  right: 1em;
+  color: #c7c7c7;
+}
+
+.select select {
+  background: #2a2634;
+  border: none;
+  padding: 1em 0.8em;
+  border-radius: 0.5em;
+  -webkit-appearance: none;
+  appearance: none;
+  color: #c7c7c7;
+}
+
+.select select:focus,
+.modalCreateAd input:focus {
+  outline: none;
+}
+
+.select option {
+  color: #c7c7c7;
+}
+
+/* Botões */
 
 .buttons {
   display: flex;

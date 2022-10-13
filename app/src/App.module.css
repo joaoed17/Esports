@@ -23,7 +23,35 @@
 }
 
 .gameBanners {
+  width: 75em;
+  overflow-y: scroll;
+  overflow-x: scroll;
   margin: 4em 0 3em 0;
   display: flex;
   gap: 1.5em;
+}
+
+.gameBanners::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollButtons {
+  display: flex;
+  align-items: center;
+  gap: 3em;
+}
+
+.scrollButton {
+  background: none;
+  border: none;
+  border-radius: 3.5em;
+  padding: 1em 1.1em;
+  cursor: pointer;
+  color: #a1a1aa;
+  transition: 0.2s;
+}
+
+.scrollButton:hover {
+  transition: 0.2s;
+  color: #6f49c6;
 }
