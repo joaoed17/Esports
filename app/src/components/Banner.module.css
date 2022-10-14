@@ -191,16 +191,16 @@
 .day {
   border-radius: 1em;
   color: #fff;
-  background: #ef4444;
+  background: #2a2634;
   padding: 0.1em 0.3em;
   cursor: pointer;
   text-decoration: none;
 }
 
 .daySelected {
-  border-radius: 1em;
+  border-radius: 0.2em;
   color: #fff;
-  background: #34d399;
+  background: #6f49c6;
   padding: 0.1em 0.3em;
   cursor: pointer;
   text-decoration: none;

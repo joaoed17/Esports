@@ -39,16 +39,19 @@ function CreateAdBanner() {
   };
 
   const subtraction = () => {
-    var year = document.getElementById("yearsPlaying").value;
+    const year = document.getElementById("yearsPlaying").value;
     if (year > 0) {
-      return year--;
+      const oldYear = parseInt(year.value);
+      elenent.value = oldYear - 1;
     } else {
       return "0";
     }
   };
 
   const addition = () => {
-    document.getElementById("years").value++;
+    const year = document.getElementById("years");
+    const oldYear = parseInt(year.value);
+    year.value = oldYear + 1;
   };
 
   return (
@@ -121,20 +124,33 @@ function CreateAdBanner() {
             <div className={style.inputDivRow}>
               <div className={style.inputDivColum}>
                 <label htmlFor="weekDays">Quando costuma jogar?</label>
-                <div>
-                  <input type="checkbox" />
-                  <input type="checkbox" />
-                  <input type="checkbox" />
-                  <input type="checkbox" />
-                  <input type="checkbox" />
-                  <input type="checkbox" />
-                  <input type="checkbox" />
+                <div className={style.weekCheckbox}>
+                  <input id="sun" type="checkbox" />
+                  <label htmlFor="sun">Dom</label>
+
+                  <input id="mon" type="checkbox" />
+                  <label htmlFor="mon">Seg</label>
+
+                  <input id="tue" type="checkbox" />
+                  <label htmlFor="tue">Ter</label>
+
+                  <input id="wed" type="checkbox" />
+                  <label htmlFor="wed">Qua</label>
+
+                  <input id="thur" type="checkbox" />
+                  <label htmlFor="thur">Qui</label>
+
+                  <input id="fri" type="checkbox" />
+                  <label htmlFor="fri">Sex</label>
+
+                  <input id="sat" type="checkbox" />
+                  <label htmlFor="sat">Sáb</label>
                 </div>
               </div>
 
               <div className={style.inputDivColum}>
                 <label htmlFor="hoursPlaying">Qual horário do dia?</label>
-                <div className={style.inputDivRow}>
+                <div className={style.hourInputDiv}>
                   <input className={style.start} type="time" />
                   <input className={style.end} type="time" />
                 </div>
@@ -153,7 +169,7 @@ function CreateAdBanner() {
             <button onClick={closeModal} className={style.buttonClose}>
               Cancelar
             </button>
-            <button className={style.buttonSend}>
+            <button type="submit" className={style.buttonSend}>
               <GameController size="1.4em" weight="bold" />
               Encontrar duo
             </button>
